@@ -1,0 +1,26 @@
+map_capitalized_2_lower:
+Mapping
+LOAD 
+	Replace(de,'@',' ') as de
+	, Replace(para,'@',' ') as para
+INLINE [
+  de, para
+	'@E@DE@', '@e@de@'
+	'@E@De@', '@e@de@'
+	'@E@Da@', '@e@da@'
+	'@E@', '@e@'
+	'@A@', '@a@'
+	'@Aos@', '@aos@'
+	'@À@', '@à@'
+	'@DE@', '@de@'
+	'@E@DE@', '@e@de@'
+	'@De@', '@de@'
+	'@DA@', '@da@'
+	'@DO@', '@do@'
+	'@Da@', '@da@'
+	'@Do@', '@do@'
+	'@Das@', '@das@'
+	'@Dos@', '@dos@'
+	'@PARA@', '@para@'
+	'@Para@', '@para@'
+];
