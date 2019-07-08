@@ -1,5 +1,5 @@
 Mapping
-remove_accents_map:
+map_remove_accents:
 LOAD * INLINE [
 F1, F2
 Š, S
