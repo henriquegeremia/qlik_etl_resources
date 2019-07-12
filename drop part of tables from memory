@@ -1,0 +1,35 @@
+// derrubar tabelas da carga binária que não serão usadas
+
+// drop part of tables from memory loaded from a binary file
+// that are not in the TablesToNotDrop list of tables
+
+let vNoOfTables =  NoOfTables();
+
+TablesToNotDrop:
+LOAD * INLINE [
+    TableToNotDrop, store_individual
+    table1
+    table2, 1
+    table3
+];
+
+
+FOR vTableNumber=0 to $(vNoOfTables)-1
+	let vTableName = TableName(vTableNumber);
+	
+	TablesToDrop:
+	LOAD 
+  	'$(vTableName)' as TableToDrop
+	AutoGenerate 1
+	Where
+    not Exists(TableToNotDrop, '$(vTableName)')
+	;
+NEXT
+
+FOR Each vTableToDrop in FieldValueList('TableToDrop')
+	DROP Table [$(vTableToDrop)];
+NEXT
+
+DROP Tables
+	TablesToDrop
+;
