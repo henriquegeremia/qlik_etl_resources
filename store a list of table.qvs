@@ -1,0 +1,18 @@
+// Store the list o tables from the "TablesToNotDrop" table that doesn't have a store_individual flag
+
+TablesToStore:
+LOAD 
+  TableToNotDrop as TableToStore
+Resident 
+  TablesToNotDrop
+Where
+	len(store_individual)=0
+	or store_individual=0
+;
+
+// vPathExtracted: path of extracted files
+
+FOR Each vTableName in FieldValueList('TableToStore')
+	store [$(vTableName)] into [$(vPathExtracted)$(vTableName)$(vTableSufixTest).qvd] (qvd);
+	drop table [$(vTableName)];
+NEXT
