@@ -1,0 +1,9 @@
+// drop all tables in memory 
+// usage scenario: when loading from a binary
+
+let v_no_of_tables = NoOfTables();
+
+for i=1 to $(v_no_of_tables)
+	let v_table_name = TableName(0);
+	drop table [$(v_table_name)];
+next;
