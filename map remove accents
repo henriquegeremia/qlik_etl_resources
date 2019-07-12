@@ -1,3 +1,5 @@
+// mapping used for removing characters' accent
+
 Mapping
 map_remove_accents:
 LOAD * INLINE [
