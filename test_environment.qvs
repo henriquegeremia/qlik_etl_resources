@@ -1,0 +1,19 @@
+// use for projects where you have to use a temporary sample of data 
+// to run the ETL more quickly and acelerate the development and text cycles
+
+LET isTest = 0; // 1 = TEST, 0 = PROD
+
+TRACE ----------------------------------------------------;
+
+IF isTest THEN
+	TRACE --   TEST   ------------------------------------;
+	LET vTableSufixTest = '_TEST';
+ELSE
+	TRACE --   PROD   ------------------------------------;
+	LET vTableSufixTest = '';
+ENDIF
+
+TRACE ----------------------------------------------------;
+
+// 
+// store [$(vTableName)] into [$(vPathDadosExt)$(vTablePrefix)$(vTableName)$(vTableSufixTest).qvd]
