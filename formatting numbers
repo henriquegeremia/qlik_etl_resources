@@ -1,0 +1,44 @@
+
+// 
+Dual(
+	if(
+		sum( field_name ) > 1000000000000  // 1.000.000.000.000 => 1,00 Tri
+		, num(
+			sum( field_name ) / 1000000000000  // 1.000.000.000.000
+			,'#.##0,0'
+		)
+		& ' Tri'
+		, if(
+			sum( field_name ) > 1000000000  // 1.000.000.000 => 1,00 Bi
+			, num(
+				sum( field_name ) / 1000000000  // 1.000.000.000
+				,'#.##0,0'
+			)
+			& ' Bi'
+			, if(
+				sum( field_name ) > 1000000  // 1.000.000 => 1,00 Mi
+				, num(
+					sum( field_name ) / 1000000  // 1.000.000
+					,'#.##0,0'
+				)
+				& ' Mi'
+				, if(
+					sum( field_name ) > 1000  => 1,00 mil
+					, num(
+						sum( field_name ) / 1000
+						,'#.##0,0'
+					)
+					& ' mil'
+					, sum( field_name )
+				)
+			)
+		)
+	)
+	& ' ('
+	& num(
+		sum( field_name ) / sum( TOTAL field_name )
+		, '#.##0,0%'
+	)
+	& ')'
+	, sum( field_name )
+) 
