@@ -1,0 +1,7 @@
+for Each folder in DirList('G:\Qlikview\DES\GAGI\Corregedoria\SIS AUD new\*')
+	TRACE $(folder);
+	
+	for Each file in FileList('$(folder)\*.qvd')
+		TRACE $(file);
+	NEXT
+NEXT
