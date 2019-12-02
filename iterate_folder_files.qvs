@@ -5,3 +5,6 @@ for Each folder in DirList('G:\Qlikview\DES\GAGI\Corregedoria\SIS AUD new\*')
 		TRACE $(file);
 	NEXT
 NEXT
+
+// qlik help
+// https://help.qlik.com/en-US/qlikview/November2017/Subsystems/Client/Content/Scripting/ScriptControlStatements/For%20Each.htm
